@@ -1,0 +1,118 @@
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+            <div class="center sliding">即客</div>
+            <div class="right">
+              <!-- 
+                Right link contains only icon - additional "icon-only" class
+                Additional "open-panel" class tells app to open panel when we click on this link
+              -->
+              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content -->
+            <div class="page-content">
+
+
+<div class="content-block-title">Simple Cards</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-content-inner">This is simple card with plain text. But card could contain its own header, footer, list view, image, and any elements inside.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">Card header</div>
+  <div class="card-content">
+    <div class="card-content-inner">Card with header and footer. Card header is used to display card title and footer for some additional information or for custom actions.</div>
+  </div>
+  <div class="card-footer">Card Footer</div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-content-inner">Another card. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat sem est, non tincidunt ligula volutpat sit amet. Mauris aliquet magna justo. </div>
+  </div>
+</div> 
+
+
+<div class="list-block">
+  <ul>
+
+    <% @posts.each do |post| %>
+      <li class="swipeout">
+        <div class="swipeout-content item-content">
+          <div class="item-media"><%= post.title %></div>
+          <div class="item-inner"><%= post.body %></div>
+        </div>
+        <div class="swipeout-actions-right">
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+</div>
+         
+              <p>Page content goes here</p>
+              <!-- Link to another page -->
+              <a href="about.html">About app</a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar tabbar tabbar-labels">
+            <div class="toolbar-inner">
+                <a href="#tab1" class="tab-link active">
+                    <i class="icon demo-icon-1"></i>
+                    <span class="tabbar-label">Label 1</span>
+                </a>
+
+                <%= link_to new_post_path, class: "tab-link" do %>
+                    <i class="icon icon-home">
+                        <span class="badge bg-red">5</span>
+                    </i>
+                    <span class="tabbar-label">发布信息</span>
+                <% end %>
+
+
+                <a href="#tab2" class="tab-link">
+                    <i class="icon icon-home">
+                        <span class="badge bg-red">5</span>
+                    </i>
+                    <span class="tabbar-label">Label 2</span>
+                </a>
+                <a href="#tab3" class="tab-link">
+                    <i class="icon demo-icon-3"></i>
+                    <span class="tabbar-label">Label 3</span>
+                </a>
+                <a href="#tab4" class="tab-link">
+                    <i class="icon demo-icon-4"></i>
+                    <span class="tabbar-label">Label 4</span>
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<%= javascript_include_tag 'framework7' %>
+<%= javascript_include_tag 'my-app' %>
